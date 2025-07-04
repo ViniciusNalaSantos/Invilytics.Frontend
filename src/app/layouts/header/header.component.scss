@@ -1,0 +1,52 @@
+$primary-color: #111F4D;
+$text-color: #F2F4F7;
+$font: 'Montserrat', sans-serif;
+$font-size: 1.5rem;
+$animation-color: #ECC14C;
+
+header {
+    background-color: $primary-color;
+    color: $text-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font;
+    min-height: 12vh;
+    padding: 0rem 2rem;
+
+    .logo {
+ 
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;        
+
+        a {
+            color: $text-color;            
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+
+            &:hover {
+                color: $animation-color;
+              }
+        
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -4px;
+                left: 0;
+                background-color: $animation-color;
+                transition: width 0.3s ease;
+            }
+        
+            &:hover::after {
+              width: 100%;
+            }
+        }
+    }    
+}

@@ -1,0 +1,11 @@
+<div class="card">
+    <ng-container *ngFor="let info of informations; let last = last">
+        <div class="for-div">
+            <h4>{{ info.title }}</h4>
+            <p *ngIf="valueFormatting() === 'currency'">{{ info.value | currency }}</p>
+            <p *ngIf="valueFormatting() === 'percent'">{{ info.value | percent }}</p>
+            <p *ngIf="!isKnownFormat(valueFormatting() || '')">{{ info.value }}</p>
+          </div>
+          <div *ngIf="!last" class="vertical-line"></div>
+    </ng-container>      
+</div>

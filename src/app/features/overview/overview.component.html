@@ -1,1 +1,8 @@
-<p>overview works!</p>
+<div class="left-container">
+    <app-information-card [informations]="portfolioValueAndTotalInvestedInformation" [valueFormatting]="'currency'"/>    
+</div>
+<div class="right-container">
+    <app-information-card [informations]="profitInformation" [valueFormatting]="'currency'"/>
+    <app-information-card [informations]="dividendIncomeMonthlyInformation" [valueFormatting]="'currency'"/>
+    <app-information-card [informations]="budgetInformation" [valueFormatting]="'currency'"/>
+</div>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { InformationCardComponent } from '../../shared/components/information-card/information-card.component';
 import { InformationCardModel } from '../../shared/models/information-card.model';
+import { DisplayCardComponent } from "../../shared/display-card/display-card.component";
 
 @Component({
   selector: 'app-overview',
-  imports: [InformationCardComponent],
+  imports: [InformationCardComponent, DisplayCardComponent],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
 })

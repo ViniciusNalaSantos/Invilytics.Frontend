@@ -1,7 +1,7 @@
 <div class="left-container">
     <!--<app-information-card [informations]="portfolioValueAndTotalInvestedInformation" [valueFormatting]="'currency'"/>-->
     <app-display-card [title]="'Portfolio Diversification'" >
-        <p>texto</p>
+        <app-pie-chart [data]="portfolioDiversificationData" [labels]="portfolioDiversificationLabels" />
     </app-display-card>
 </div>
 <div class="right-container">

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InformationCardComponent } from '../../shared/components/information-card/information-card.component';
 import { InformationCardModel } from '../../shared/models/information-card.model';
-import { DisplayCardComponent } from "../../shared/display-card/display-card.component";
+import { DisplayCardComponent } from "../../shared/components/display-card/display-card.component";
 import { PieChartComponent } from "../../shared/pie-chart/pie-chart.component";
 
 @Component({

@@ -5,10 +5,28 @@
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
-    height: auto;            
+    height: auto;           
 }
 
 body {
     background-color: #F2F4F7;
-    font-family: "Nunito", sans-serif;
+}
+
+.card {
+    background-color: #FFF;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.horizontal-line {
+    border: 1px solid #ECC14C;
+    height: 100%;          
+}
+
+.vertical-line {
+    width: 2px;
+    height: 100px;
+    background-color: #ECC14C;
+    align-self: center;
 }

@@ -1,22 +1,13 @@
 .card {
-    background-color: #FFF;
-    border-radius: 20px;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: stretch;      
 
     h4 {
         color: #393E46;
         font-size: 2rem;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 400;
+        font-family: "Nunito", sans-serif;
+        font-weight: 400;        
         padding: 16px 32px;
-    }
-
-    .horizontal-line {
-        border: 1px solid #ECC14C;
-        height: 100%;            
     }
 
     .content {

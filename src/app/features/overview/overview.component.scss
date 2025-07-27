@@ -2,12 +2,31 @@
     padding: 30px 3vw;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 20px;
 
     .left-container {
+        width: 65%;
         display: flex;
         flex-direction: column;
         gap: 20px
     }
 
+    .right-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .information-cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 20px;
+            
+            .information-card {
+                width: 100%;
+            }
+        }
+    }
 }

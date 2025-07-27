@@ -7,9 +7,12 @@
     </div>
     <div class="right-container">
         <div class="information-cards">
-            <app-information-card [informations]="profitInformation" [valueFormatting]="'currency'"/>
-            <app-information-card [informations]="dividendIncomeMonthlyInformation" [valueFormatting]="'currency'"/>
-            <app-information-card [informations]="budgetInformation" [valueFormatting]="'currency'"/>
+            <app-information-card class="information-card" [informations]="profitInformation" [valueFormatting]="'currency'"/>
+            <app-information-card class="information-card" [informations]="dividendIncomeMonthlyInformation" [valueFormatting]="'currency'"/>
+            <app-information-card class="information-card" [informations]="budgetInformation" [valueFormatting]="'currency'"/>
         </div>
+        <app-display-card [title]="'Patriony Growth'">
+
+        </app-display-card>
     </div>
 </div>

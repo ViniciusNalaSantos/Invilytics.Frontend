@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { InformationCardComponent } from '../../shared/components/information-card/information-card.component';
 import { InformationCardModel } from '../../shared/models/information-card.model';
 import { DisplayCardComponent } from "../../shared/components/display-card/display-card.component";
-import { PieChartComponent } from "../../shared/pie-chart/pie-chart.component";
+import { PieChartComponent } from "../../shared/components/pie-chart/pie-chart.component";
+import { LineChartComponent } from '../../shared/components/line-chart/line-chart.component';
 
 @Component({
   selector: 'app-overview',
-  imports: [InformationCardComponent, DisplayCardComponent, PieChartComponent],
+  imports: [InformationCardComponent, DisplayCardComponent, PieChartComponent, LineChartComponent],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
 })

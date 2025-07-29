@@ -15,6 +15,7 @@ export type ChartOptions = {
   chart: ApexChart;
   xaxis: ApexXAxis;
   dataLabels: ApexDataLabels;
+  grid: ApexGrid;
   stroke: ApexStroke;
   title: ApexTitleSubtitle;
 };
@@ -27,32 +28,94 @@ export type ChartOptions = {
 })
 export class LineChartComponent implements OnChanges{
   @ViewChild('chart') chart!: ChartComponent;
-  public chartOptions!: ChartOptions;
+  public chartOptions: ChartOptions = {
+    series: [
+      {
+        name: "Desktops",
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      }
+    ],
+    chart: {
+      height: 350,
+      type: "line",
+      zoom: {
+        enabled: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: "straight"
+    },
+    title: {
+      text: "Product Trends by Month",
+      align: "left"
+    },
+    grid: {
+      row: {
+        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+        opacity: 0.5
+      }
+    },
+    xaxis: {
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ]
+    }
+  };
   
   ngOnChanges(changes: SimpleChanges): void {
     this.chartOptions = {
       series: [
         {
-          name: "Sales",
+          name: "Desktops",
           data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
         }
       ],
       chart: {
         height: 350,
-        type: "line"
+        type: "line",
+        zoom: {
+          enabled: false
+        }
       },
       dataLabels: {
-        enabled: true
+        enabled: false
       },
       stroke: {
-        curve: "smooth"
+        curve: "straight"
       },
       title: {
-        text: "Sales Over Time",
+        text: "Product Trends by Month",
         align: "left"
       },
+      grid: {
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
       xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep"
+        ]
       }
     };
   }

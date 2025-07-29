@@ -1,0 +1,53 @@
+.panel {
+    background-color: white;
+    padding: 100px;
+
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--secondary-text-color);
+    }
+    
+    h1 {
+        font-family: 'Nunito', sans-serif;
+        font-size: 3rem;
+        font-weight: 400;
+        color: var(--primary-text-color);
+        padding-bottom: 50px;    
+    }
+
+    .informations-container {
+        width: fit-content;
+        height: fit-content;
+        margin-left: 100px;
+
+        .general-informations {
+            display: flex;
+            flex-direction: row;
+            gap: 75px;
+            width: 100%;
+    
+            .information {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+    
+                h4 {
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 1.375rem;
+                    font-weight: 400;
+                    color: var(--secondary-text-color);              
+                }
+        
+                p {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 2.25rem;
+                    font-weight: 400;
+                    color: var(--primary-text-color);
+                    padding-left: 15px;            
+                }
+            }
+        }
+    }
+}

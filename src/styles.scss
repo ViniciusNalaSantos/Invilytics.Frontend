@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-text-color: #000000;
+    --secondary-text-color: #393E46;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,9 +29,21 @@ body {
     height: 100%;          
 }
 
+.grey-horizontal-line {
+    border: 1px solid #CCCCCC;
+    height: 100%;          
+}
+
 .vertical-line {
     width: 3px;
     height: 100px;
     background-color: #ECC14C;
     align-self: center;
+}
+
+.grey-vertical-line {
+    width: 3px;
+    height: 100px;
+    background-color: #CCCCCC;
+    align-self: center;    
 }

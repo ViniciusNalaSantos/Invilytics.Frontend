@@ -1,0 +1,29 @@
+.informations-container {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 100px;
+    gap: 2vw;
+
+    .information {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        h4 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.375rem;
+            font-weight: 400;
+            color: var(--secondary-text-color);              
+        }
+
+        p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: var(--primary-text-color);
+            padding-left: 15px;            
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div class="bg-white flex flex-col gap-6 p-2 rounded-lg">
+    <span class="text-[#393E46] text-md font-(family-name:--font-montserrat)">{{ title }}</span>
+    @if (isColored) {
+        <span 
+            class="text-2xl font-(family-name:--font-nunito)"
+            [style.color]="value | colorValue"
+        >
+            {{ value | formatValue:formatType }}
+        </span>
+    }
+    @else {
+        <span class="text-2xl font-(family-name:--font-nunito)">{{ value | formatValue:formatType }}</span>
+    }
+</div>

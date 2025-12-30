@@ -10,20 +10,11 @@ import { ColorValuePipe } from '../../shared/pipes/color-value-pipe/color-value-
   templateUrl: './information-card-component.html',
   styleUrl: './information-card-component.css',
 })
-export class InformationCardComponent implements OnInit {
+export class InformationCardComponent {
   @Input() isColored: boolean = false;
   @Input() title: string = '';
   @Input() value: number = 0.0;
   @Input() formatType: 'currency' | 'percent' = 'currency';
 
-  constructor (
-    private currencyPipe: CurrencyPipe,
-    private percentPipe: PercentPipe
-  ) {}
-  
-  ngOnInit(): void {
-    this.title = 'Profit';
-    this.value = 25000;
-    this.isColored = true;
-  }  
+  constructor () {}
 }

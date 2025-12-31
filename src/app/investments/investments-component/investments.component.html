@@ -1,3 +1,7 @@
-<div class="w-full min-h-[50vh]">
+<div>
     <app-investments-overview-component></app-investments-overview-component>
+    <app-investments-tab-component
+        [sections]="['distribution', 'patrimonyGrowth', 'dividends']"
+    >
+    </app-investments-tab-component>
 </div>

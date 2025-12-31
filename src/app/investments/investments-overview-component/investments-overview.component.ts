@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { InvestmentsInformationComponent } from "../investments-information-component/investments-information.component";
-import { InvestmentsTabComponent } from "../investments-tab-component/investments-tab.component";
 
 @Component({
   selector: 'app-investments-overview-component',
   standalone: true,
-  imports: [InvestmentsInformationComponent, InvestmentsTabComponent],
+  imports: [InvestmentsInformationComponent],
   templateUrl: './investments-overview.component.html',
   styleUrl: './investments-overview.component.css'
 })

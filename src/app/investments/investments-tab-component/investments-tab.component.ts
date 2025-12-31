@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { DistributionComponent } from "../distribution/distribution.component";
 
 type Section = 'distribution' | 'patrimonyGrowth' | 'dividends';
 
@@ -12,7 +13,7 @@ const SectionTitles: Record<Section, string> = {
 @Component({
   selector: 'app-investments-tab-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DistributionComponent],
   templateUrl: './investments-tab.component.html',
   styleUrl: './investments-tab.component.css'
 })

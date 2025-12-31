@@ -1,5 +1,5 @@
-<div class="min-h-[50vh]">
-    <div class="w-full flex bg-white gap-8 w-fit">
+<div class="w-full min-h-[50vh]">
+    <div class="w-full flex justify-center bg-white gap-8">
         @for (section of sections; track $index) {
             <div>
                 <button 
@@ -23,6 +23,14 @@
         }
     </div>
     <div class="w-full bg-[#F2F4F7]">
-        
+        @if (selectedSection === 'distribution') {
+            <app-distribution></app-distribution>
+        }
+        @else if (selectedSection === 'patrimonyGrowth') {
+
+        }
+        @else if (selectedSection === 'dividends') {
+            
+        }
     </div>
 </div>

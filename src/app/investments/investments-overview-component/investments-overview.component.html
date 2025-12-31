@@ -1,8 +1,25 @@
 <div class="w-full min-h-[50vh] bg-white pt-4 px-4 sm:px-6 lg:px-8">
     <span class="text-[#393E46] text-md font-(family-name:--font-montserrat)">Investments</span>
-    <h1 class="text-black text-2xl font-(family-name:--font-montserrat) font-medium pb-6">Analysis by sector</h1>
+    @if (sectorName && sectorName.trim() !== '') {
+        <h1 class="text-black text-2xl font-(family-name:--font-montserrat) font-medium pb-6">Analysis by sector detailed (<span class="text-[#ECC14C]">{{ sectorName }}</span>)</h1>
+    }
+    @else {
+        <h1 class="text-black text-2xl font-(family-name:--font-montserrat) font-medium pb-6">Analysis by sector</h1>
+    }
     <div class="px-6 sm:px-8 lg:px-10 w-fit">
-        <app-investments-information-component></app-investments-information-component>
-        <hr>
+        <app-investments-information-component
+            [portfolioValue]="0"
+            [totalInvested]="0"
+            [yield]="0"
+            [budget]="1000"
+        >
+        </app-investments-information-component>
+        <hr class="mt-4 mb-8 h-px bg-gray-300 border-0">
     </div>
+</div>
+<div class="w-full min-h-[50vh] flex justify-center">
+    <app-investments-tab-component
+        [sections]="['distribution', 'patrimonyGrowth', 'dividends']"
+    >
+    </app-investments-tab-component>
 </div>

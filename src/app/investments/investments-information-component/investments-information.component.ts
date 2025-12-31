@@ -12,5 +12,5 @@ export class InvestmentsInformationComponent {
   @Input() portfolioValue = 0;
   @Input() totalInvested = 0;
   @Input() yield = 0;
-  @Input() budget = 1000;
+  @Input() budget = 0;
 }

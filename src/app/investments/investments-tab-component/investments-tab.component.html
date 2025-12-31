@@ -1,0 +1,28 @@
+<div class="min-h-[50vh]">
+    <div class="w-full flex bg-white gap-8 w-fit">
+        @for (section of sections; track $index) {
+            <div>
+                <button 
+                    class="text-lg md:text-xl font-(family-name:--font-nunito) px-[15px]"
+                    (click)="selectedSection = section"
+                    [class.text-[#1f2328]]="selectedSection === section"
+                    [class.text-[#828D9F]]="selectedSection !== section"
+                >
+                    {{ getSectionTitle(section) }}
+                </button>
+                <!-- Yellow underline -->
+                @if (selectedSection === section) {
+                    <div
+                        class="h-[3px] bg-yellow-400 rounded-full"
+                    ></div>
+                }
+            </div>
+            @if (!$last) {
+                <div class="w-px bg-gray-300"></div>
+            }
+        }
+    </div>
+    <div class="w-full bg-[#F2F4F7]">
+        
+    </div>
+</div>

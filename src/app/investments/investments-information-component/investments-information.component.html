@@ -1,16 +1,16 @@
 <div class="grid grid-cols-2 gap-5 place-items-center md:flex md:flex-row md:gap-10">
     <div class="flex flex-col gap-2">
-        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-montserrat)">Portfolio Value</span>
-        <span class="text-lg md:text-2xl font-(family-name:--font-nunito) pl-3 md:pl-6">{{ portfolioValue | formatValue:'currency' }}</span>
+        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-nunito)">Portfolio Value</span>
+        <span class="text-lg md:text-2xl font-(family-name:--font-montserrat) pl-3 md:pl-6">{{ portfolioValue | formatValue:'currency' }}</span>
     </div>
     <div class="flex flex-col gap-2">
-        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-montserrat)">Total Invested</span>
-        <span class="text-lg md:text-2xl font-(family-name:--font-nunito) pl-3 md:pl-6">{{ totalInvested | formatValue:'currency' }}</span>
+        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-nunito)">Total Invested</span>
+        <span class="text-lg md:text-2xl font-(family-name:--font-montserrat) pl-3 md:pl-6">{{ totalInvested | formatValue:'currency' }}</span>
     </div>
     <div class="flex flex-col gap-2">
-        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-montserrat)">Yield</span>
+        <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-nunito)">Yield</span>
         <span 
-            class="text-lg md:text-2xl font-(family-name:--font-nunito) pl-3 md:pl-6"
+            class="text-lg md:text-2xl font-(family-name:--font-montserrat) pl-3 md:pl-6"
             [style.color]="yield | colorValue"
         >
             {{ yield | formatValue:'percent' }}
@@ -18,8 +18,8 @@
     </div>
     @if (budget > 0) {
         <div class="flex flex-col gap-2">
-            <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-montserrat)">Budget</span>
-            <span class="text-lg md:text-2xl font-(family-name:--font-nunito) pl-3 md:pl-6">{{ budget | formatValue:'currency' }}</span>
+            <span class="text-[#393E46] text-xs md:text-sm font-(family-name:--font-nunito)">Budget</span>
+            <span class="text-lg md:text-2xl font-(family-name:--font-montserrat) pl-3 md:pl-6">{{ budget | formatValue:'currency' }}</span>
         </div>
     }
 </div>

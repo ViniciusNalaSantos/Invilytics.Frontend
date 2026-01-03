@@ -1,7 +1,17 @@
-<div class="bg-white">
+<div class="bg-white flex">
     <span>{{ title }}</span>
     <div class="w-px bg-gray-300"></div>
     <app-investments-information-component></app-investments-information-component>
     <div class="w-px bg-gray-300"></div>
-    
+    <!-- For a chevron pointing down -->
+    <mat-icon 
+        style="
+            font-size: 2.5rem !important;
+            line-height: 2.5rem !important; /* prevent clipping */
+            display: inline-block;
+            color: #ECC14C;
+        "
+    >
+        expand_more
+    </mat-icon>
 </div>

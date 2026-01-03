@@ -1,29 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Investment } from '../DataStructures/models/investment';
 import { Sector } from '../DataStructures/models/sector';
-import { InvestmentsService } from './../services/investments.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DistributionGeneralComponent } from "../distribution-general/distribution-general.component";
+import { DistributionDetailedComponent } from "../distribution-detailed/distribution-detailed.component";
 
 
 @Component({
   selector: 'app-distribution',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DistributionGeneralComponent, DistributionDetailedComponent],
   templateUrl: './distribution.component.html',
   styleUrl: './distribution.component.css'
 })
-export class DistributionComponent implements OnInit {
+export class DistributionComponent {
   @Input() isDetailed = false;
-  investmentsBySector?: Investment[];
-  investmentsBySectorDetailed?: Sector[]
-
-  constructor (private investmentService: InvestmentsService) {}
-  
-  ngOnInit(): void {
-    if (this.isDetailed) {
-      // TODO: develop de logic
-    } else {
-      this.investmentsBySector = this.investmentService.getInvestmentsByUser();
-    }
-  }
+  investmentsBySectorDetailed?: Sector[];
 }

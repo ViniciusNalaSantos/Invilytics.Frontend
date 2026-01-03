@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Sector } from '../DataStructures/models/sector';
+import { Sector } from '../data-structures/models/sector';
 import { Component, Input } from '@angular/core';
 import { DistributionGeneralComponent } from "../distribution-general/distribution-general.component";
 import { DistributionDetailedComponent } from "../distribution-detailed/distribution-detailed.component";

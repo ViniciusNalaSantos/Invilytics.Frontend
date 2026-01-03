@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Investment } from '../DataStructures/models/investment';
+import { Investment } from '../data-structures/models/investment';
 import { InvestmentsService } from '../services/investments.service';
 import { CommonModule } from '@angular/common';
 import { ExpandablePanelComponent } from "../expandable-panel/expandable-panel.component";

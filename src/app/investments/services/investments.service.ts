@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Sector } from '../DataStructures/models/sector';
-import { Investment } from '../DataStructures/models/investment';
+import { Investment } from '../data-structures/models/investment';
 
 @Injectable({
   providedIn: 'root'

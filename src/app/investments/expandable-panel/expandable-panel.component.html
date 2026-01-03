@@ -1,17 +1,16 @@
-<div class="bg-white flex">
-    <span>{{ title }}</span>
-    <div class="w-px bg-gray-300"></div>
-    <app-investments-information-component></app-investments-information-component>
-    <div class="w-px bg-gray-300"></div>
-    <!-- For a chevron pointing down -->
-    <mat-icon 
-        style="
-            font-size: 2.5rem !important;
-            line-height: 2.5rem !important; /* prevent clipping */
-            display: inline-block;
-            color: #ECC14C;
-        "
-    >
-        expand_more
-    </mat-icon>
+<div class="bg-white flex items-center justify-around py-1">
+    <span class="text-2xl">{{ title }}</span>
+    <div class="w-px h-10 bg-gray-300"></div>
+    <app-investments-information-component [isSmall]="true"></app-investments-information-component>
+    <div class="w-px h-10 bg-gray-300"></div>
+    <button mat-icon-button class="expand-btn" (click)="onExpand()">
+        <mat-icon class="expand-icon">
+            expand_more
+        </mat-icon>
+    </button>
 </div>
+@if (expanded) {
+    <div>
+        <ng-component />
+    </div>
+}

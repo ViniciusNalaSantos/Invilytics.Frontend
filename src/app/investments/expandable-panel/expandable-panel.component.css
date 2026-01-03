@@ -1,0 +1,15 @@
+.expand-icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+    line-height: 4rem;
+    color: #ECC14C;
+  
+    /* animation */
+    transition: transform 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* hover animation */
+.expand-btn:hover .expand-icon {
+    transform: scale(1.25);
+}

@@ -2,7 +2,11 @@
     @for (investment of investmentsBySector; track $index) {
         <div class="w-full">
             <app-expandable-panel [title]="'FIIs'">
-                <app-grid />
+                <app-grid 
+                    [columns]="columns"
+                    [data]="tasks"
+                    [selectable]="false"
+                />
             </app-expandable-panel>
         </div>
     }

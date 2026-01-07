@@ -1,38 +1,51 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
 
   <!-- Selection column -->
-  <ng-container matColumnDef="select" *ngIf="selectable">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox></mat-checkbox>
-    </th>
-    <td mat-cell *matCellDef="let row">
-      <mat-checkbox></mat-checkbox>
-    </td>
-  </ng-container>
+  @if (selectable) {
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox></mat-checkbox>
+      </td>
+    </ng-container>
+  }
 
   <!-- Dynamic columns -->
-  <ng-container *ngFor="let column of columns" [matColumnDef]="column.key">
+  @for (column of columns; track column.key) {
+    <ng-container 
+      [matColumnDef]="column.key"
+    >
 
-    <th mat-header-cell *matHeaderCellDef>
-      {{ column.header }}
-    </th>
+      <th 
+        mat-header-cell
+        *matHeaderCellDef
+        class="text-sm text-[#393E46] font-(family-name:--font-nunito) font-light"
+      >
+        {{ column.header }}
+      </th>
 
-    <td mat-cell *matCellDef="let row">
-      <ng-container [ngSwitch]="column.type">
+      <td mat-cell *matCellDef="let row">
+        @switch (column.type) {
 
-        <input *ngSwitchCase="'input'" matInput [value]="row[column.key]" />
+          @case ('input') {
+            <input matInput [value]="row[column.key]" />
+          }
 
-        <mat-checkbox *ngSwitchCase="'checkbox'" [checked]="row[column.key]">
-        </mat-checkbox>
+          @case ('checkbox') {
+            <mat-checkbox [checked]="row[column.key]"></mat-checkbox>
+          }
 
-        <span *ngSwitchDefault>
-          {{ row[column.key] }}
-        </span>
+          @default {
+            <span>{{ row[column.key] }}</span>
+          }
 
-      </ng-container>
-    </td>
+        }
+      </td>
 
-  </ng-container>
+    </ng-container>
+  }
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

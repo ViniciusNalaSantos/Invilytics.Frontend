@@ -1,11 +1,10 @@
-<div class="w-full min-h-[50vh] pt-4">
+<div class="w-full min-h-[50vh] pt-4 md:pt-12">
     @for (investment of investmentsBySector; track $index) {
-        <div class="w-full">
+        <div class="w-full pb-2 md:pb-4">
             <app-expandable-panel [title]="'FIIs'">
-                <app-grid 
+                <app-grid
                     [columns]="columns"
                     [data]="tasks"
-                    [selectable]="false"
                 />
             </app-expandable-panel>
         </div>

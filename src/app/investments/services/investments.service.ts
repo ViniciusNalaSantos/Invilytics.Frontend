@@ -27,6 +27,24 @@ export class InvestmentsService {
             invested: 3100.52
           }
         ]
+      },
+      {
+        name: 'FIIs',
+        portfolioValue: 8000,
+        totalInvested: 7000,
+        yield: 0.05,
+        sectors: [
+          {
+            name: 'Imóveis Industriais e Logísticos',
+            position: 3000,
+            invested: 2050
+          },
+          {
+            name: 'Shoppings',
+            position: 4070.50,
+            invested: 3100.52
+          }
+        ]
       }
     ]
   }

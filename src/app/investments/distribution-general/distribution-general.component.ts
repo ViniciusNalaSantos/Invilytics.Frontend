@@ -15,15 +15,18 @@ import { GridColumn, GridComponent } from "../../shared/grid/grid.component";
 export class DistributionGeneralComponent implements OnInit {
   investmentsBySector?: Investment[];
   columns: GridColumn<any>[] = [
-    { key: 'taskId', header: 'ID' },
-    { key: 'summary', header: 'Summary' },
-    { key: 'priority', header: 'Priority' },
-    { key: 'assignee', header: 'Assignee', type: 'input' }
+    { key: 'assetsListed', header: 'Assets Listed', isEmphasized: true },
+    { key: 'position', header: 'Position', type: 'currency' },
+    { key: 'invested', header: 'Invested', type: 'currency' },
+    { key: 'grossYield', header: 'Gross Yield', type: 'percent' },
+    { key: 'yieldWithouDividends', header: 'Yield w/o Dividends', type: 'percent' },
+    { key: 'dividentYield', header: 'Dividend Yield', type: 'percent' },
   ];
   
   tasks: any[] = [
-    { taskId: 1, summary: 'Fix bug', priority: 'High', assignee: 'Ana' },
-    { taskId: 2, summary: 'Refactor', priority: 'Low', assignee: 'Carlos' }
+    { assetsListed: "Imóveis Industriais e L...", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 },
+    { assetsListed: "Shopping", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 },
+    { assetsListed: "Fiagro", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 }
   ];
   
 

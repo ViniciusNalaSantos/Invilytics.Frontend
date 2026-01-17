@@ -14,7 +14,7 @@ import { GridColumn, GridComponent } from "../../shared/grid/grid.component";
 })
 export class DistributionGeneralComponent implements OnInit {
   investmentsBySector?: Investment[];
-  columns: GridColumn<any>[] = [
+  columns: GridColumn[] = [
     { key: 'assetsListed', header: 'Assets Listed', isEmphasized: true },
     { key: 'position', header: 'Position', type: 'currency' },
     { key: 'invested', header: 'Invested', type: 'currency' },
@@ -27,8 +27,7 @@ export class DistributionGeneralComponent implements OnInit {
     { assetsListed: "Imóveis Industriais e L...", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 },
     { assetsListed: "Shopping", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 },
     { assetsListed: "Fiagro", position: 1234, invested: 1000, grossYield: 0.2, yieldWithouDividends: 0.8, dividentYield: 0.18 }
-  ];
-  
+  ];  
 
   constructor (private investmentService: InvestmentsService) {}
   

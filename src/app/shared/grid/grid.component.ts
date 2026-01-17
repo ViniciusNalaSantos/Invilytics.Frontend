@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormatValuePipe } from '../pipes/format-value-pipe/format-value-pipe';
 
 
-export interface GridColumn<T = any> {
+export interface GridColumn {
   key: string;                 // property name
   header: string;              // header label
   type?: 'currency' | 'percent';

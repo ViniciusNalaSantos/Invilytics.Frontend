@@ -34,6 +34,7 @@ export class DoughnutGraph implements AfterViewInit, OnChanges, OnDestroy {
   @Input() labels: GraphLabelsDto[] = [];
   @Input() data: Record<string, number>[] = [];
   @Input() colors: string[] = ['#111F4D', '#393E46', '#E9ECF1'];
+  @Input() hasLegend = true;
 
   ngOnChanges(): void {
     if (!this.labels.length || !this.data.length) return;
@@ -81,6 +82,7 @@ export class DoughnutGraph implements AfterViewInit, OnChanges, OnDestroy {
         cutout: '70%',
         plugins: {
           legend: {
+            display: this.hasLegend,
             position: 'bottom'
           }
         }

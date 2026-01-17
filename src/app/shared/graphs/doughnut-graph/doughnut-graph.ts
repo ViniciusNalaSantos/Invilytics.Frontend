@@ -32,19 +32,25 @@ export class DoughnutGraph implements AfterViewInit, OnChanges {
   @Input() colors: string[] = ['#111F4D', '#393E46', '#E9ECF1'];
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.data.forEach(c => this.displayedData.push(c));
-    this.displayedLabels = [
-      ...this.data.map(c => c.key)
-    ];
+    this.labels.forEach(label => {
+      const dataObj = this.data.find(d => d[label.key] !== undefined);
+      if (dataObj) {
+        this.displayedData.push(dataObj[label.key]);
+        this.displayedLabels.push(label.label);
+      }
+    });
   }
 
   ngAfterViewInit(): void {
+    if (!this.data || !this.labels) return;
+
+
     this.chart = new Chart(this.chartCanvas.nativeElement, {
       type: 'doughnut',
       data: {
         labels: this.displayedLabels,
         datasets: [{
-          data: this.data,
+          data: this.displayedData,
           backgroundColor: this.colors,
           borderWidth: 0
         }]

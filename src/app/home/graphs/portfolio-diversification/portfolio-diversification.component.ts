@@ -18,6 +18,6 @@ export class PortfolioDiversificationComponent {
   data: any[] = [
     { fii: 60 },
     { stock: 20 },
-    { publicTreasure: 20 },
+    { publicTreasure: 10 }
   ]
 }

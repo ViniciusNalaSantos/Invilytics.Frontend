@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input, OnChanges, SimpleChanges, OnInit, OnDestroy } from '@angular/core';
 import {
   Chart,
   DoughnutController,
@@ -17,43 +17,64 @@ Chart.register(
 
 @Component({
   selector: 'app-doughnut-graph',
+  standalone: true,
   imports: [],
   templateUrl: './doughnut-graph.html',
   styleUrl: './doughnut-graph.css',
 })
-export class DoughnutGraph implements AfterViewInit, OnChanges {
-  @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
-  private chart!: Chart;
-  private displayedData: number[] = [];
-  private displayedLabels: string[] = [];
+export class DoughnutGraph implements AfterViewInit, OnChanges, OnDestroy {
+  @ViewChild('chartCanvas', { static: true })
+  chartCanvas!: ElementRef<HTMLCanvasElement>;
+
+  private chart?: Chart;
+
+  displayedData: number[] = [];
+  displayedLabels: string[] = [];
 
   @Input() labels: GraphLabelsDto[] = [];
-  @Input() data: any[] = [];
+  @Input() data: Record<string, number>[] = [];
   @Input() colors: string[] = ['#111F4D', '#393E46', '#E9ECF1'];
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.labels.forEach(label => {
-      const dataObj = this.data.find(d => d[label.key] !== undefined);
-      if (dataObj) {
-        this.displayedData.push(dataObj[label.key]);
-        this.displayedLabels.push(label.label);
+  ngOnChanges(): void {
+    if (!this.labels.length || !this.data.length) return;
+
+    this.buildChartData();
+    this.updateChart();
+  }
+
+  ngAfterViewInit(): void {
+    if (!this.displayedData.length) {
+      this.buildChartData();
+    }
+
+    this.createChart();
+  }
+
+  private buildChartData(): void {
+    this.displayedData = [];
+    this.displayedLabels = [];
+
+    this.labels.forEach(({ key, label }) => {
+      const match = this.data.find(d => d[key] !== undefined);
+      if (match) {
+        this.displayedData.push(match[key]);
+        this.displayedLabels.push(label);
       }
     });
   }
 
-  ngAfterViewInit(): void {
-    if (!this.data || !this.labels) return;
-
-
+  private createChart(): void {
     this.chart = new Chart(this.chartCanvas.nativeElement, {
       type: 'doughnut',
       data: {
         labels: this.displayedLabels,
-        datasets: [{
-          data: this.displayedData,
-          backgroundColor: this.colors,
-          borderWidth: 0
-        }]
+        datasets: [
+          {
+            data: this.displayedData,
+            backgroundColor: this.colors,
+            borderWidth: 0
+          }
+        ]
       },
       options: {
         responsive: true,
@@ -66,8 +87,17 @@ export class DoughnutGraph implements AfterViewInit, OnChanges {
       }
     });
   }
-  
+
+  private updateChart(): void {
+    if (!this.chart) return;
+
+    this.chart.data.labels = this.displayedLabels;
+    this.chart.data.datasets[0].data = this.displayedData;
+    this.chart.update();
+  }
+
   ngOnDestroy(): void {
     this.chart?.destroy();
   }
 }
+

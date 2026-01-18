@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import {
   Chart,
   LineController,
@@ -25,62 +25,41 @@ Chart.register(
   templateUrl: './line-graph.html',
   styleUrl: './line-graph.css'
 })
-export class LineGraphComponent implements AfterViewInit, OnChanges {
+export class LineGraphComponent implements AfterViewInit {
   @Input() title = '';
   private hasTitle = false;
   @Input() hasLegend = true;
-  @Input() labels: GraphLabelsDto[] = [
-    { key: 'jan', label: 'Jan' },
-    { key: 'feb', label: 'Feb' },
-    { key: 'may', label: 'May' },
-    { key: 'apr', label: 'Apr' },
-    { key: 'mar', label: 'Mar' }
-  ];
-  @Input() data: LineGraphDataDto[] = [
-    {
-      label: 'Sales',
-      data: [{jan: 120}, {feb: 150}, {may:180}, {apr:170}, {mar:200}],
-      borderColor: 'rgb(75, 192, 192)',
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      tension: 0.4
-    }
-  ];
+  @Input() labels: GraphLabelsDto[] = [];
+  @Input() data: LineGraphDataDto[] = [];
   private displayedData: any[] = [];
   private displayedLabels: string[] = [];
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.hasTitle = !!this.title;
-  }
-
   ngAfterViewInit() {
     this.hasTitle = !!this.title;
+
     this.buildChartData();
     this.buildLabels();
-    console.log(this.displayedData);
-    console.log(this.displayedLabels);
-
     this.createChart();
   }
 
   private buildChartData(): void {
-    this.data.forEach(( d ) => {
-      let dataList = this.orderDataAccordingToLabelSequence(d.data);
+    this.data.forEach(( singleData ) => {
       let displayableData = {
-        label: d.label,
-        data: dataList,
-        borderColor: d.borderColor,
-        backgroundColor: d.backgroundColor,
-        tension: d.tension
+        label: singleData.label,
+        data: this.orderValuesAccordingToLabelSequence(singleData.data),
+        borderColor: singleData.borderColor,
+        backgroundColor: singleData.backgroundColor,
+        tension: singleData.tension
       }
       this.displayedData.push(displayableData);
     });
   }
 
-  private orderDataAccordingToLabelSequence(singleDataGraphDto: Record<string, number>[]): number[] {
+  private orderValuesAccordingToLabelSequence(unorderedValuesByLabelKey: Record<string, number>[]): number[] {
     const result: number[] = [];
 
     this.labels.forEach(({ key, label }) => {
-      const match = singleDataGraphDto.find(d => d[key] !== undefined);
+      const match = unorderedValuesByLabelKey.find(d => d[key] !== undefined);
       
       if (match) {
         result.push(match[key]);

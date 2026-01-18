@@ -4,11 +4,12 @@ import { ContentCardComponent } from "../content-card/content-card.component";
 import { DoughnutGraph } from "../../shared/graphs/doughnut-graph/doughnut-graph";
 import { PortfolioDiversificationComponent } from "../graphs/portfolio-diversification/portfolio-diversification.component";
 import { LineGraphComponent } from "../../shared/graphs/line-graph/line-graph";
+import { PatrimonyGrowthComponent } from "../graphs/patrimony-growth/patrimony-growth";
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [InformationCardComponent, ContentCardComponent, DoughnutGraph, PortfolioDiversificationComponent, LineGraphComponent],
+  imports: [InformationCardComponent, ContentCardComponent, DoughnutGraph, PortfolioDiversificationComponent, LineGraphComponent, PatrimonyGrowthComponent],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
 })

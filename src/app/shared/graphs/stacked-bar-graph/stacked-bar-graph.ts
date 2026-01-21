@@ -10,6 +10,7 @@ import {
   Legend
 } from 'chart.js';
 import { GraphLabelsDto, StackBarGraphDataDto } from '../dtos/graph-data-dto';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(
   BarController,
@@ -17,8 +18,10 @@ Chart.register(
   CategoryScale,
   LinearScale,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
+
 
 @Component({
   selector: 'app-stacked-bar-graph',
@@ -88,6 +91,30 @@ export class StackedBarGraph implements AfterViewInit {
             mode: 'index',
             intersect: false
           },
+          datalabels: {
+            anchor: 'end',
+            align: 'end',
+            formatter: (_: number, context) => {
+              const chart = context.chart;
+              const dataIndex = context.dataIndex;
+              const datasetIndex = context.datasetIndex;
+
+              // Only show label for the last dataset (top of stack)
+              if (datasetIndex !== chart.data.datasets.length - 1) {
+                return null;
+              }
+
+              let total = 0;
+              chart.data.datasets.forEach((dataset: any) => {
+                total += dataset.data[dataIndex] || 0;
+              });
+
+              return total;
+            },
+            font: {
+              weight: 'bold'
+            }
+          }
         },
         scales: {
           x: {

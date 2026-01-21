@@ -10,3 +10,10 @@ export interface LineGraphDataDto {
     backgroundColor: string;
     tension: number;
 }
+
+export interface StackBarGraphDataDto {
+    label: string;
+    data: any[];
+    backgroundColor: string;
+    stack: string;
+}

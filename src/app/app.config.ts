@@ -2,8 +2,9 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessC
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { DomSanitizer, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { CurrencyPipe, PercentPipe } from '@angular/common';
+import { MatIconRegistry } from '@angular/material/icon';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +12,22 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes), provideClientHydration(withEventReplay()),
     CurrencyPipe,
-    PercentPipe
+    PercentPipe,
+    MatIconRegistry,
+    {
+      provide: 'ICON_INIT',
+      useFactory: (iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) => {
+        return () => {
+          iconRegistry.addSvgIcon(
+            'overview',
+            sanitizer.bypassSecurityTrustResourceUrl(
+              'assets/icons/overview.svg'
+            )
+          );
+        };
+      },
+      deps: [MatIconRegistry, DomSanitizer],
+      multi: true
+    }
   ]
 };

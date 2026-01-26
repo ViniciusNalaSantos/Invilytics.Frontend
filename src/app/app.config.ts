@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { DomSanitizer, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { CurrencyPipe, PercentPipe } from '@angular/common';
 import { MatIconRegistry } from '@angular/material/icon';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { registerAppIcons } from './app-icons';
 
 
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
 
     CurrencyPipe,
     PercentPipe,

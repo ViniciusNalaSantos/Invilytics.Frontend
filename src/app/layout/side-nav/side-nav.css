@@ -1,0 +1,71 @@
+.icon {
+    color: #F2F4F7;
+}
+
+/* Sidebar base */
+.sidebar {
+    width: 64px;                 /* collapsed */
+    transition: width 0.25s ease;
+    overflow: hidden;
+}
+
+/* Expand on hover */
+.sidebar:hover {
+    width: 150px;               /* expanded */
+    transition-delay: 0s;
+}
+
+/* Collapsing */
+.sidebar:not(:hover) {
+    transition-delay: 0.15s;
+}
+
+/* Nav item */
+.nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #f2f4f7;
+    text-decoration: none;
+}
+
+/* Icon stays visible */
+.icon {
+    min-width: 24px;
+}
+
+/* Label hidden by default */
+.label {
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+
+/* Show label when sidebar is hovered */
+.sidebar:hover .label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Prevent mouse “flicker” on edge */
+.sidebar {
+    pointer-events: auto;
+}
+  
+.sidebar * {
+    pointer-events: none;
+}
+  
+.sidebar:hover * {
+    pointer-events: auto;
+}
+
+
+  

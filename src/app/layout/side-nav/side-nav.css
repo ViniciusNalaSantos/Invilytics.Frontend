@@ -4,7 +4,7 @@
 
 /* Sidebar base */
 .sidebar {
-    width: 64px;                 /* collapsed */
+    width: 48px;                 /* collapsed */
     transition: width 0.25s ease;
     overflow: hidden;
 }
@@ -22,13 +22,41 @@
 
 /* Nav item */
 .nav-item a {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 12px;
+    width: 100%;
     padding: 10px;
-    border-radius: 8px;
     color: #f2f4f7;
     text-decoration: none;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+/* Background hover */
+.nav-item a:hover {
+    background-color: #2F3B64;
+}
+
+/* Left indicator line */
+.nav-item a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #4D7CFE;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+  
+/* Show line */
+.nav-item a:hover::before {
+    transform: scaleX(1);
 }
 
 /* Icon stays visible */

@@ -1,4 +1,7 @@
-<aside class="sidebar bg-[#111F4D] h-screen flex flex-col justify-between">
+<aside 
+  class="sidebar bg-[#111F4D] h-screen flex flex-col justify-between"
+  (mouseleave)="onSidebarLeave()"
+>
     <!-- Logo / Brand -->
     <!-- <div class="sidebar-header">
       <span class="logo">MyApp</span>
@@ -8,36 +11,71 @@
     <nav class="sidebar-nav pt-2">
       <ul class="flex flex-col gap-2">
         <li class="nav-item">
-          <a routerLink="/dashboard" routerLinkActive="active">
-            <mat-icon
-              svgIcon="overview"
-              class="icon"
-            >
-            </mat-icon>
-            <span class="label text-[#F2F4F7]">Overview</span>
-          </a>
+          <div
+            class="nav-parent"
+            (click)="toggleCustomers()"
+          >
+            <a routerLink="/dashboard" routerLinkActive="active">
+              <mat-icon
+                svgIcon="overview"
+                class="icon"
+              >
+              </mat-icon>
+              <span class="label text-[#F2F4F7]">Overview</span>
+            </a>
+          </div>
+          
         </li>
   
         <li class="nav-item">
-          <a routerLink="/orders" routerLinkActive="active">
+          <div
+            class="nav-parent"
+            (click)="toggleCustomers()"
+          >
+            <a routerLink="/orders" routerLinkActive="active">
+              <mat-icon
+                svgIcon="investments"
+                class="icon"
+              >
+              </mat-icon>
+              <span class="label text-[#F2F4F7]">Orders</span>
+            </a>
             <mat-icon
-              svgIcon="investments"
-              class="icon"
+              class="chevron"
             >
+              expand_more
             </mat-icon>
-            <span class="label text-[#F2F4F7]">Orders</span>
-          </a>
+          </div>
+          <!-- Sub menu -->
+          <ul class="sub-menu" [class.open]="customersOpen">
+            <li>
+              <a routerLink="/customers/list">Customer List</a>
+            </li>
+            <li>
+              <a routerLink="/customers/new">New Customer</a>
+            </li>
+          </ul>
         </li>
   
         <li class="nav-item">
-          <a routerLink="/customers" routerLinkActive="active">
+          <div
+            class="nav-parent"
+            (click)="toggleCustomers()"
+          >
+            <a routerLink="/customers" routerLinkActive="active">
+              <mat-icon
+                svgIcon="data-management"
+                class="icon"
+              >
+              </mat-icon>
+              <span class="label text-[#F2F4F7]">Customers</span>
+            </a>
             <mat-icon
-              svgIcon="data-management"
-              class="icon"
+              class="chevron"
             >
+              expand_more
             </mat-icon>
-            <span class="label text-[#F2F4F7]">Customers</span>
-          </a>
+          </div>
         </li>      
       </ul>
     </nav>
@@ -45,25 +83,35 @@
     <nav class="sidebar-nav pb-2">
       <ul class="flex flex-col gap-2">
         <li class="nav-item">
-          <a routerLink="/settings" routerLinkActive="active">
-            <mat-icon
-              svgIcon="settings"
-              class="icon"
-            >
-            </mat-icon>
-            <span class="label text-[#F2F4F7]">Settings</span>
-          </a>
+          <div
+            class="nav-parent"
+            (click)="toggleCustomers()"
+          >
+            <a routerLink="/settings" routerLinkActive="active">
+              <mat-icon
+                svgIcon="settings"
+                class="icon"
+              >
+              </mat-icon>
+              <span class="label text-[#F2F4F7]">Settings</span>
+            </a>
+          </div>
         </li>
 
         <li class="nav-item">
-          <a routerLink="/settings" routerLinkActive="active">
-            <mat-icon
-              svgIcon="account"
-              class="icon"
-            >
-            </mat-icon>
-            <span class="label text-[#F2F4F7] ">Settings</span>
-          </a>
+          <div
+            class="nav-parent"
+            (click)="toggleCustomers()"
+          >
+            <a routerLink="/settings" routerLinkActive="active">
+              <mat-icon
+                svgIcon="account"
+                class="icon"
+              >
+              </mat-icon>
+              <span class="label text-[#F2F4F7] ">Settings</span>
+            </a>
+          </div>
         </li>
       </ul>
     </nav>

@@ -11,7 +11,7 @@
 
 /* Expand on hover */
 .sidebar:hover {
-    width: 150px;               /* expanded */
+    width: 190px;               /* expanded */
     transition-delay: 0s;
 }
 
@@ -22,25 +22,33 @@
 
 /* Nav item */
 .nav-item a {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 12px;
     width: 100%;
-    padding: 10px;
+    flex: 1;
+    min-width: 0;
+    padding: 2px;
     color: #f2f4f7;
     text-decoration: none;
-    overflow: hidden;
+    transition: background-color 0.2s ease;  
+}
+
+.nav-item .nav-parent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
     transition: background-color 0.2s ease;
 }
 
 /* Background hover */
-.nav-item a:hover {
+.nav-item .nav-parent:hover {
     background-color: #2F3B64;
 }
 
 /* Left indicator line */
-.nav-item a::before {
+.nav-item .nav-parent::before {
     content: '';
     position: absolute;
     left: 0;
@@ -55,7 +63,7 @@
 }
   
 /* Show line */
-.nav-item a:hover::before {
+.nav-item .nav-parent:hover::before {
     transform: scaleX(1);
 }
 
@@ -95,5 +103,56 @@
     pointer-events: auto;
 }
 
-
+.nav-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px 10px 10px;
+    cursor: pointer;
+    color: #f2f4f7;
+}
   
+.nav-parent:hover {
+    background-color: #2F3B64;
+}
+
+.chevron {
+    color: #f2f4f7;
+    font-size: 30px;
+    margin-left: auto;  
+    transition: transform 0.25s ease;
+    opacity: 0;
+}
+  
+/* Show chevron only when sidebar is expanded */
+.sidebar:hover .chevron {
+    opacity: 1;
+}
+  
+.chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    padding-left: 36px;
+}
+
+.sub-menu.open {
+    max-height: 200px;
+}
+
+.sub-menu a {
+    display: block;
+    padding: 6px 10px;
+    color: #cfd6ff;
+    text-decoration: none;
+    font-size: 13px;
+}
+  
+.sub-menu a:hover {
+    color: #ffffff;
+}
+

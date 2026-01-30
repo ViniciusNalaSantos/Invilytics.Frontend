@@ -11,5 +11,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './side-nav.css',
 })
 export class SideNavComponent {
+  customersOpen = false;
 
+  toggleCustomers() {
+    this.customersOpen = !this.customersOpen;
+  }
+
+  onSidebarLeave() {
+    this.customersOpen = false; // 👈 CLOSE submenu
+  }
 }

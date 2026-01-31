@@ -24,5 +24,6 @@ export class SideNavComponent {
 
   onSidebarLeave() {
     this.investmentsOpen = false;
+    this.dataManagementOpen = false;
   }
 }

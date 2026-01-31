@@ -11,13 +11,18 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './side-nav.css',
 })
 export class SideNavComponent {
-  customersOpen = false;
+  investmentsOpen = false;
+  dataManagementOpen = false;
 
-  toggleCustomers() {
-    this.customersOpen = !this.customersOpen;
+  toggleInvestments() {
+    this.investmentsOpen = !this.investmentsOpen;
+  }
+
+  toggleDataManagement() {
+    this.dataManagementOpen = !this.dataManagementOpen;
   }
 
   onSidebarLeave() {
-    this.customersOpen = false; // 👈 CLOSE submenu
+    this.investmentsOpen = false;
   }
 }

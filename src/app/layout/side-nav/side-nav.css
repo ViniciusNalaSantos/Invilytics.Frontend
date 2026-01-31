@@ -11,7 +11,7 @@
 
 /* Expand on hover */
 .sidebar:hover {
-    width: 190px;               /* expanded */
+    width: 230px;               /* expanded */
     transition-delay: 0s;
 }
 
@@ -137,7 +137,6 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.25s ease;
-    padding-left: 36px;
 }
 
 .sub-menu.open {
@@ -147,12 +146,11 @@
 .sub-menu a {
     display: block;
     padding: 6px 10px;
-    color: #cfd6ff;
+    color: #F2F4F7;
     text-decoration: none;
     font-size: 13px;
+    padding-left: 36px;
 }
   
-.sub-menu a:hover {
-    color: #ffffff;
-}
+
 

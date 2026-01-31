@@ -81,7 +81,14 @@
         opacity 0.15s ease,
         transform 0.15s ease;
     font-family: 'Nunito', sans-serif;
+}
+
+span.label {
     font-weight: 600;
+}
+
+a.label {
+    font-weight: 300;
 }
 
 /* Show label when sidebar is hovered */

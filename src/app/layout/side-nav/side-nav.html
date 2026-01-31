@@ -12,7 +12,7 @@
       <ul class="flex flex-col gap-2">
         <li class="nav-item">
           <div class="nav-parent">
-            <a>
+            <a routerLink="/home">
               <mat-icon
                 svgIcon="overview"
                 class="icon"
@@ -25,55 +25,95 @@
         </li>
   
         <li class="nav-item">
-          <div class="nav-parent" (click)="toggleInvestments()">
-            <a>
+          <div class="nav-parent">
+            <a routerLink="/investments">
               <mat-icon svgIcon="investments" class="icon"></mat-icon>
               <span class="label text-[#F2F4F7]">Investments</span>
             </a>
-            <mat-icon class="chevron">
+            <mat-icon class="chevron" (click)="toggleInvestments()">
               expand_more
             </mat-icon>
           </div>
           <!-- Sub menu -->
           <ul class="sub-menu" [class.open]="investmentsOpen">
             <li class="nav-parent">
-                <a>Investments by sector</a>
+                <a 
+                  routerLink="/investments/investments-by-sector"
+                  class="label"
+                >
+                  Investments by sector
+                </a>
             </li>
             <li class="nav-parent">
-              <a>Investments detailed</a>
+              <a 
+                routerLink="/investments/investments-detailed"
+                class="label"
+              >
+                Investments detailed
+              </a>
             </li>
           </ul>
         </li>
   
         <li class="nav-item">
-          <div class="nav-parent" (click)="toggleDataManagement()">
-            <a>
+          <div class="nav-parent">
+            <a routerLink="/data-management">
               <mat-icon svgIcon="data-management" class="icon"></mat-icon>
               <span class="label text-[#F2F4F7]">Data Management</span>
             </a>
-            <mat-icon class="chevron">
+            <mat-icon class="chevron" (click)="toggleDataManagement()">
               expand_more
             </mat-icon>
           </div>
           <!-- Sub menu -->
           <ul class="sub-menu" [class.open]="dataManagementOpen">
             <li class="nav-parent">
-                <a>Investment Types</a>
+                <a 
+                  routerLink="/data-management/investment-types"
+                  class="label"
+                >
+                  Investment Types
+                </a>
             </li>
             <li class="nav-parent">
-              <a>Investment Sectors</a>
+              <a 
+                routerLink="/data-management/investment-sectors"
+                class="label"
+              >
+                Investment Sectors
+              </a>
             </li>
             <li class="nav-parent">
-              <a>Stocks</a>
+              <a 
+                routerLink="/data-management/stocks"
+                class="label"
+              >
+                Stocks
+              </a>
             </li>
             <li class="nav-parent">
-              <a>Purchases</a>
+              <a 
+                routerLink="/data-management/purchases"
+                class="label"
+              >
+                Purchases
+              </a>
             </li>
             <li class="nav-parent">
-              <a>Sales</a>
+              <a 
+                routerLink="/data-management/sales"
+                class="label"
+              >
+                Sales
+              </a>
             </li>
             <li class="nav-parent">
-              <a>Stock Quotes History</a>
+              <a 
+                routerLink="/data-management/stock-quotes-history"
+                class="label"
+              >
+                Stock Quotes History
+              </a>
             </li>
           </ul>
         </li>      
@@ -84,7 +124,7 @@
       <ul class="flex flex-col gap-2">
         <li class="nav-item">
           <div class="nav-parent">
-            <a routerLink="/settings" routerLinkActive="active">
+            <a>
               <mat-icon svgIcon="settings" class="icon"></mat-icon>
               <span class="label text-[#F2F4F7]">Settings</span>
             </a>
@@ -93,9 +133,9 @@
 
         <li class="nav-item">
           <div class="nav-parent">
-            <a routerLink="/settings" routerLinkActive="active">
+            <a>
               <mat-icon svgIcon="account" class="icon"></mat-icon>
-              <span class="label text-[#F2F4F7] ">Settings</span>
+              <span class="label text-[#F2F4F7] ">Account</span>
             </a>
           </div>
         </li>

@@ -5,7 +5,14 @@
   "projects": {
     "Invilytics.Frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "type": "component",
+          "standalone": true,
+          "style": "css",
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -87,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "defaultCollection": "@schematics/angular"
   }
 }

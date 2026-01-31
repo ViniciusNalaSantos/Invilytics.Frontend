@@ -1,6 +1,6 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 import { Component } from '@angular/core';
-import { HomeComponent } from './home/home-component/home-component';
+import { HomeComponent } from './home/home/home.component';
 
 export const serverRoutes: ServerRoute[] = [
   {

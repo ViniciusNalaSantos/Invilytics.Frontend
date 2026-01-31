@@ -5,8 +5,8 @@ import { GraphLabelsDto } from '../../../shared/graphs/dtos/graph-data-dto';
 @Component({
   selector: 'app-patrimony-growth',
   imports: [LineGraphComponent],
-  templateUrl: './patrimony-growth.html',
-  styleUrl: './patrimony-growth.css'
+  templateUrl: './patrimony-growth.component.html',
+  styleUrl: './patrimony-growth.component.css'
 })
 export class PatrimonyGrowthComponent {
   labels: GraphLabelsDto[] = [

@@ -4,7 +4,7 @@ import { ContentCardComponent } from "../content-card/content-card.component";
 import { DoughnutGraph } from "../../shared/graphs/doughnut-graph/doughnut-graph";
 import { PortfolioDiversificationComponent } from "../graphs/portfolio-diversification/portfolio-diversification.component";
 import { LineGraphComponent } from "../../shared/graphs/line-graph/line-graph";
-import { PatrimonyGrowthComponent } from "../graphs/patrimony-growth/patrimony-growth";
+import { PatrimonyGrowthComponent } from "../graphs/patrimony-growth/patrimony-growth.component";
 import { StackedBarGraph } from "../../shared/graphs/stacked-bar-graph/stacked-bar-graph";
 import { GraphLabelsDto } from '../../shared/graphs/dtos/graph-data-dto';
 import { SideNavComponent } from "../../layout/side-nav/side-nav";
@@ -13,8 +13,8 @@ import { SideNavComponent } from "../../layout/side-nav/side-nav";
   selector: 'app-home-component',
   standalone: true,
   imports: [InformationCardComponent, ContentCardComponent, DoughnutGraph, PortfolioDiversificationComponent, LineGraphComponent, PatrimonyGrowthComponent, StackedBarGraph, SideNavComponent],
-  templateUrl: './home-component.html',
-  styleUrl: './home-component.css',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   labels: GraphLabelsDto[] = [

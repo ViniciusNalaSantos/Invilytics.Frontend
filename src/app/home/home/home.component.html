@@ -1,12 +1,53 @@
-<div class="w-full min-h-screen bg-[#F2F4F7] flex gap-6 p-10">
-    <app-information-card-component></app-information-card-component>
-    <app-content-card [title]="'Portfolio Diversification'">
-        <app-portfolio-diversification />
+<div class="min-h-screen grid grid-cols-[2fr_3fr] grid-rows-[auto_1fr] gap-x-7 gap-y-3 bg-[#F2F4F7] p-6">
+    
+    <!-- ROW 1 / LEFT -->
+    <!-- <div class="flex flex-col gap-3"> -->
+    <div class="flex gap-3">
+        <app-information-card-component
+            class="flex-1"
+            [title]="'Portfolio Value'"
+            [value]="portfolioValue"
+        ></app-information-card-component>
+        <app-information-card-component 
+            class="flex-1"
+            [title]="'Total Invested'"
+            [value]="totalInvested"
+        ></app-information-card-component>
+    </div>
+    
+    <!-- ROW 1 / RIGHT -->
+    <div class="flex gap-3">
+        <app-information-card-component 
+            class="flex-1"
+            [title]="'Profit'"
+            [value]="profit"
+            [isColored]="true"
+        ></app-information-card-component>
+        <app-information-card-component
+            class="flex-1"
+            [title]="'Dividend Income (last m/)'"
+            [value]="dividendIncomeLastMonth"
+            [isColored]="true"
+        ></app-information-card-component>
+        <app-information-card-component
+            class="flex-1"
+            [title]="'Budget'"
+            [value]="budget"
+        ></app-information-card-component>
+    </div>
+
+    <!-- ROW 2 / LEFT -->
+    <app-content-card
+        class="h-full flex flex-col"
+        [title]="'Portfolio Diversification'"
+    >
+        <app-portfolio-diversification class="flex-1" />
+  </app-content-card>
+    <!-- </div> -->
+    <!-- ROW 2 / RIGHT -->
+    <!-- <div class="flex flex-col gap-3"> -->         
+    <app-content-card [title]="'Patrimony Growth'" class="h-full flex flex-col">
+        <app-patrimony-growth class="flex-1"/>
     </app-content-card>
-    <app-content-card [title]="'Patrimony Growth'">
-        <app-patrimony-growth />
-    </app-content-card>
-    <app-content-card [title]="'Teste'">
-        <app-stacked-bar-graph [data]="data" [labels]="labels"></app-stacked-bar-graph>
-    </app-content-card>
+    <!-- </div> -->
 </div>

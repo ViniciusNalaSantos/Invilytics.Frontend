@@ -17,6 +17,13 @@ import { SideNavComponent } from "../../layout/side-nav/side-nav";
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  portfolioValue = 0.0;
+  totalInvested = 0.0;
+  profit = 0.0;
+  dividendIncomeLastMonth = 0.0;
+  budget = 0.0;
+
+
   labels: GraphLabelsDto[] = [
     { key: 'jan', label: 'Jan' },
     { key: 'feb', label: 'Feb' },

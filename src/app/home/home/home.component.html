@@ -1,4 +1,4 @@
-<div class="min-h-screen grid grid-cols-[2fr_3fr] grid-rows-[auto_1fr] gap-x-7 gap-y-3 bg-[#F2F4F7] p-6">
+<div class="min-h-screen content-start grid grid-cols-[1.5fr_3fr] gap-x-7 gap-y-3 bg-[#F2F4F7] p-6">
     
     <!-- ROW 1 / LEFT -->
     <!-- <div class="flex flex-col gap-3"> -->
@@ -38,16 +38,14 @@
 
     <!-- ROW 2 / LEFT -->
     <app-content-card
-        class="h-full flex flex-col"
+        class="flex flex-col"
         [title]="'Portfolio Diversification'"
     >
         <app-portfolio-diversification class="flex-1" />
-  </app-content-card>
-    <!-- </div> -->
-    <!-- ROW 2 / RIGHT -->
-    <!-- <div class="flex flex-col gap-3"> -->         
-    <app-content-card [title]="'Patrimony Growth'" class="h-full flex flex-col">
+    </app-content-card>
+
+    <!-- ROW 2 / RIGHT -->      
+    <app-content-card [title]="'Patrimony Growth'" class="flex flex-col">
         <app-patrimony-growth class="flex-1"/>
     </app-content-card>
-    <!-- </div> -->
 </div>

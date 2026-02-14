@@ -7,12 +7,11 @@ import { LineGraphComponent } from "../../shared/graphs/line-graph/line-graph";
 import { PatrimonyGrowthComponent } from "../graphs/patrimony-growth/patrimony-growth.component";
 import { StackedBarGraph } from "../../shared/graphs/stacked-bar-graph/stacked-bar-graph";
 import { GraphLabelsDto } from '../../shared/graphs/dtos/graph-data-dto';
-import { SideNavComponent } from "../../layout/side-nav/side-nav";
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
-  imports: [InformationCardComponent, ContentCardComponent, DoughnutGraph, PortfolioDiversificationComponent, LineGraphComponent, PatrimonyGrowthComponent, StackedBarGraph, SideNavComponent],
+  imports: [InformationCardComponent, ContentCardComponent, DoughnutGraph, PortfolioDiversificationComponent, LineGraphComponent, PatrimonyGrowthComponent, StackedBarGraph],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

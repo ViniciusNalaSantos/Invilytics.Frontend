@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
-import { InvestmentsComponent } from './investments/investments-component/investments.component';
+import { InvestmentsComponent } from './investments/investments/investments.component';
 import { DataManagement } from './data-management/data-management/data-management';
 
 export const routes: Routes = [
@@ -9,18 +9,12 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'investments',
-        component: InvestmentsComponent,
-        children: [
-            {
-                path: 'investments-by-sector',
-                loadComponent: () => import('./investments/investments-by-sector/investments-by-sector').then(m => m.InvestmentsBySector)
-            },
-            {
-                path: 'investments-detailed',
-                loadComponent: () => import('./investments/investments-detailed/investments-detailed').then(m => m.InvestmentsDetailed)
-            }
-        ]
+        path: 'investments/investments-by-sector',
+        loadComponent: () => import('./investments/investments-by-sector/investments-by-sector').then(m => m.InvestmentsBySector)
+    },
+    {
+        path: 'investments/investments-detailed',
+        loadComponent: () => import('./investments/investments-detailed/investments-detailed').then(m => m.InvestmentsDetailed)
     },
     {
         path: 'data-management',

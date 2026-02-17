@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InvestmentsOverviewComponent } from '../investments-overview-component/investments-overview.component';
 import { InvestmentsTabComponent } from "../investments-tab-component/investments-tab.component";
 
@@ -9,5 +9,6 @@ import { InvestmentsTabComponent } from "../investments-tab-component/investment
   styleUrl: './investments.component.css'
 })
 export class InvestmentsComponent {
-
+  @Input() isDetailed: boolean = false;
+  @Input() sectorName = '';
 }

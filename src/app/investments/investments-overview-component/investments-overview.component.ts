@@ -9,6 +9,7 @@ import { InvestmentsInformationComponent } from "../investments-information-comp
   styleUrl: './investments-overview.component.css'
 })
 export class InvestmentsOverviewComponent {
+  @Input() isDetailed: boolean = false;
   @Input() sectorName = 'FIIs';
 
   get title(): string {

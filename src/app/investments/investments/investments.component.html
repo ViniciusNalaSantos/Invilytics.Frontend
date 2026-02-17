@@ -1,5 +1,5 @@
 <div>
-    <app-investments-overview-component></app-investments-overview-component>
+    <app-investments-overview-component [isDetailed]="isDetailed" [sectorName]="sectorName" />
     <app-investments-tab-component
         [sections]="['distribution', 'patrimonyGrowth', 'dividends']"
     />

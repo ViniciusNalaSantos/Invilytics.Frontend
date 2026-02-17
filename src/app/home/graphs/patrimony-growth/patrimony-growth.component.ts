@@ -18,7 +18,7 @@ export class PatrimonyGrowthComponent {
     ];
   
     data: any[] = [
-        {
+      {
         label: 'Sales',
         data: [{jan: 120}, {feb: 150}, {may:180}, {apr:170}, {mar:200}],
         borderColor: 'rgb(75, 192, 192)',

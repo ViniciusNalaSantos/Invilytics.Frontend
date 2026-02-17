@@ -1,0 +1,11 @@
+<div class="w-full min-h-[50vh] pt-4 md:pt-12">
+    @for (investment of investmentsBySector; track $index) {
+        <div class="w-full pb-2 md:pb-4">
+            <app-expandable-panel [title]="'FIIs'">
+                <div class="px-2">
+                    <app-line-graph [labels]="labels" [data]="data" />
+                </div>
+            </app-expandable-panel>
+        </div>
+    }
+</div>

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, Input, OnChanges, SimpleChanges, OnInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input, OnChanges, SimpleChanges, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import {
   Chart,
   DoughnutController,
@@ -7,6 +7,7 @@ import {
   Legend
 } from 'chart.js';
 import { GraphLabelsDto } from '../dtos/graph-data-dto';
+import { isPlatformBrowser } from '@angular/common';
 
 Chart.register(
   DoughnutController,
@@ -36,7 +37,15 @@ export class DoughnutGraph implements AfterViewInit, OnChanges, OnDestroy {
   @Input() colors: string[] = ['#111F4D', '#393E46', '#E9ECF1'];
   @Input() hasLegend = true;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
+
   ngOnChanges(): void {
+    if (!this.isBrowser()) return;
+    
     if (!this.labels.length || !this.data.length) return;
 
     this.buildChartData();
@@ -44,6 +53,8 @@ export class DoughnutGraph implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if (!this.isBrowser()) return;
+
     if (!this.displayedData.length) {
       this.buildChartData();
     }

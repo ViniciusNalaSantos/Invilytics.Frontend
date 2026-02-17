@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import {
   Chart,
   LineController,
@@ -9,6 +9,7 @@ import {
   CategoryScale
 } from 'chart.js';
 import { GraphLabelsDto, LineGraphDataDto } from '../dtos/graph-data-dto';
+import { isPlatformBrowser } from '@angular/common';
 
 Chart.register(
   LineController,
@@ -33,8 +34,16 @@ export class LineGraphComponent implements AfterViewInit {
   @Input() data: LineGraphDataDto[] = [];
   private displayedData: any[] = [];
   private displayedLabels: string[] = [];
+  @ViewChild('lineChart') canvas!: ElementRef<HTMLCanvasElement>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
 
   ngAfterViewInit() {
+    if (!this.isBrowser()) return;
     this.hasTitle = !!this.title;
 
     this.buildChartData();
@@ -74,7 +83,11 @@ export class LineGraphComponent implements AfterViewInit {
   }
 
   createChart() {
-    new Chart('lineChart', {
+    const ctx = this.canvas.nativeElement.getContext('2d');
+
+    if (!ctx) return;
+
+    new Chart(ctx, {
       type: 'line',
       data: {
         labels: this.displayedLabels,

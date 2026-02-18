@@ -9,5 +9,5 @@ import { InvestmentsComponent } from "../investments/investments.component";
   styleUrl: './investments-by-sector.css',
 })
 export class InvestmentsBySector {
-
+  
 }
